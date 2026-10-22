@@ -23,7 +23,8 @@ const person2 = new Person("Susana", "Torcato");
 
 console.log(person1);
 console.log(person2.gender);
-console.log(person1.getFullName()); */
+console.log(person1.getFullName()); 
+console.log(Object.getPrototypeOf(person1))
 
 // Changing prototype value
 
@@ -40,5 +41,68 @@ Person.prototype = {age: 15}
 const person2 = new Person()
 
 console.log(person1.age);
-console.log(person2.age);
+console.log(person2.age); */
 
+function Livro(nome, autor, numeroPaginas, marcador, avaliacao) { // argumentos por posição
+  this.nome = nome,
+  this.autor = autor,
+  this.numeroPaginas = numeroPaginas,
+  this.marcador = marcador,
+  this.avaliacao = avaliacao
+}
+
+/* (segundo)
+  function Livro({ nome, autor, numeroPaginas, marcador, avaliacao }) {
+  this.nome = nome;
+  this.autor = autor;
+  this.numeroPaginas = numeroPaginas;
+  this.marcador = marcador;
+  this.avaliacao = avaliacao;
+} */
+
+Livro.prototype.loja = 'Fnac' // é um objeto associado (comundo a todos os livros, steve jobs biografia, meu pé de laranja lima, entre outros)
+
+Livro.prototype.mostrarRequesitos = function () {
+  console.log(`O nome do livro é ${this.nome}`)
+  console.log(`Tu compraste à loja da ${Livro.prototype.loja}`) // this.loja
+}
+
+const SteveJobsBiografia = new Livro('A biografia de Steve Jobs', 'Walter Isaacson', 607, 'Muito bom', false)
+const MeuPeDeLaranjaLima = new Livro('Meu pé de laranja lima', 'José Mauro', 128, undefined,'Bom')
+
+MeuPeDeLaranjaLima.mostrarRequesitos()
+SteveJobsBiografia.mostrarRequesitos()
+
+SteveJobsBiografia.avaliacao = 'Muito bom'
+
+console.log(SteveJobsBiografia.numeroPaginas)
+console.log(MeuPeDeLaranjaLima.avaliacao)
+console.log(MeuPeDeLaranjaLima.marcador)
+// console.log(SteveJobsBiografia.avaliacao)
+
+Livro.prototype.paginas = function () {
+  console.log(`O número de páginas é de ${this.numeroPaginas}`)
+}
+
+// Object.prototype (terceiro)
+
+MeuPeDeLaranjaLima.paginas()
+
+console.log(SteveJobsBiografia.hasOwnProperty('nome'))
+console.log(MeuPeDeLaranjaLima.hasOwnProperty('avaliacao'))
+console.log(SteveJobsBiografia.hasOwnProperty('loja'))
+
+console.log(Object.getPrototypeOf(SteveJobsBiografia) === Livro.prototype)
+console.log(Object.getPrototypeOf(Livro.prototype) === Object.prototype)
+
+
+// a propriadade própria tem propriedade sobre a propriedade do protótipo
+
+/* (primeiro)
+function Livro(opcoes) {
+  this.nome = opcoes.nome;
+  this.autor = opcoes.autor;
+  this.numeroPaginas = opcoes.numeroPaginas;
+  this.avaliacao = opcoes.avaliacao;
+  this.marcador = opcoes.marcador;
+} */
