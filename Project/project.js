@@ -5,31 +5,26 @@ let rl = readline.createInterface({
   output: process.stdout
 });
 
-let livro;
-let pagina;
-const agora = new Date()
-const horasMinutos = agora.toLocaleTimeString('pt-PT', {
-  hour: '2-digit',
-  minute: '2-digit'
-}) // criar quando o usurário inserir as páginas
-
- rl.question  ('Livro: ', (resposta) => {
-  livro = resposta
-
-  novaPagina()
-})
-
-function novaPagina() {
-  rl.question ('Diga a página que está: ', (resposta) =>  {
-    pagina = resposta
-    
-    mostrarDados()
-  }) 
+function Livro({nome}) {
+  this.nome = nome;
 }
 
-function mostrarDados() {
-  console.log(`O livro é ${livro} e a página é ${pagina}`)
-  console.log(horasMinutos)
+function nomeLivro() {
+  rl.question ('Nome do livro: ', (resposta) => {
+    Livro.nome = resposta
+
+    Mostrarnome()
+  })
+}
+
+nomeLivro()
+
+function Mostrarnome() {
+  console.log(`O nome do livro é ${Livro.nome}`)
   rl.close()
 }
+
+
+
+
 
