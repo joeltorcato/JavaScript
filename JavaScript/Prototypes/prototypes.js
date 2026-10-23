@@ -77,7 +77,7 @@ Livro.prototype.loja = 'Fnac' // é um objeto associado (comundo a todos os livr
 
 Livro.prototype.mostrarRequesitos = function () { // propriedade do protótipo
   console.log(`O nome do livro é ${this.nome}`)
-  console.log(`Tu compraste à loja da ${Livro.prototype.loja}`) // this.loja
+  console.log(`Tu compraste à loja da ${Livro.prototype.loja}`) // this.loja (Fnac)
 }
 
 /* const SteveJobsBiografia = new Livro('A biografia de Steve Jobs', 'Walter Isaacson', 607, 'Muito bom', false)
@@ -87,7 +87,7 @@ const MeuPeDeLaranjaLima = new Livro('Meu pé de laranja lima', 'José Mauro', 1
   nome: "A biografia de Steve Jobs",
   autor: "Walter Isaacson",
   numeroPaginas: 607,
-  loja: "Deus" // Não funciona
+  loja: "Worten" // Não funciona
 })
 
 const MeuPeDeLaranjaLima = new Livro({
@@ -101,6 +101,7 @@ const MeuPeDeLaranjaLima = new Livro({
 MeuPeDeLaranjaLima.loja = "Bertrand"
 
 console.log(SteveJobsBiografia.loja) // Fnac
+console.log(MeuPeDeLaranjaLima.loja) // Bertrand
 
 MeuPeDeLaranjaLima.mostrarRequesitos()
 Livro.prototype.mostrarRequesitos.call(MeuPeDeLaranjaLima)
