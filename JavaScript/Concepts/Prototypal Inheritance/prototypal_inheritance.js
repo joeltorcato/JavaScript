@@ -69,6 +69,7 @@ function livroDigital({ titulo, autor, numeroPaginas, formato}) {
   this.formato = formato
 }
 
+// Estudar
 livroDigital.prototype = Object.create(livroFisico.prototype)
 livroDigital.prototype.constructor = livroDigital
 

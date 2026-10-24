@@ -4,30 +4,27 @@ let rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 })
-
-let valorFormato
-
-function escolherTipoLivro() {
-  rl.question ('1- Digital \n2- Físico\n\nResposta:  ', (resposta) => {
-    valorFormato = resposta
-
-    escolha()
-  })
-}
-
-escolherTipoLivro()
-
-
-
-function livroFisico({titulo, autor, numeroPaginas, avaliacao}) {
+function livro({titulo, autor, numeroPaginas, avaliacao}) {
   this.titulo = titulo;
   this.autor = autor;
   this.numeroPaginas = numeroPaginas;
   this.avaliacao = avaliacao
 }
 
+function livroFisico({titulo, autor, numeroPaginas, avaliacao}) {
+  livro.call(this, {
+    titulo,
+    autor,
+    numeroPaginas,
+    avaliacao
+  })
+}
+
+livroFisico.prototype = Object.create(livro.prototype)
+livroFisico.prototype.constructor = livro
+
 function livroDigital({titulo, autor, numeroPaginas, avaliacao, formato}) {
-  LivroFisico.call(this, {
+  livro.call(this, {
     titulo,
     autor,
     numeroPaginas,
@@ -36,22 +33,53 @@ function livroDigital({titulo, autor, numeroPaginas, avaliacao, formato}) {
   this.formato = formato;
 }
 
-const meuPeDeLaranjaLima = new livroFisico ({
-  titulo: "Meu pé de laranja lima",
-  autor: "José Mauro de Vasconcelos",
-  numeroPaginas: 128,
-  avaliacao: "Bom"
-})
+livroDigital.prototype = Object.create(livro.prototype)
+livroDigital.prototype.constructor = livro
 
-function escolha() {
-  if (valorFormato == 1) {
-    console.log("O livro é digital")
-  } else if (valorFormato == 2) {
-    console.log("O livro é físico")
+// Estudar a function perguntar
+function perguntar(mensagem) {
+  return new Promise((resolve) => {
+    rl.question(mensagem, (resposta) => {
+    resolve(resposta)
+  })
+  })
+}
+
+// Estudar como funciona o async e o await
+async function criarLivro() {
+  const tipo = await perguntar("1 - Digital | 2 - Físico: ")
+  const titulo = await perguntar("Título: ")
+  const autor = await perguntar("Autor: ")
+  const numeroPaginas = await perguntar("Número de páginas: ")
+
+  let livro
+  
+  if (tipo == 1) {
+    livro = new livroDigital ({
+      titulo,
+      autor,
+      numeroPaginas
+    })
+  } else if (tipo == 2) {
+    livro = new livroFisico ({
+      titulo,
+      autor,
+      numeroPaginas
+    })
   } else {
-    console.log("Insira um valor válido")
+    console.log("Insira um valor válido.")
+    rl.close()
   }
+  console.log(livro)
 
   rl.close()
 }
+
+criarLivro()
+
+// Nova funcionalidade - pedir o formato para dispositivos digitais
+
+
+
+
 
