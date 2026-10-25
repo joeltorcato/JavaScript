@@ -51,7 +51,7 @@ function livroFisico({titulo, autor, numeroPaginas}) { // parent/base type
 }
 
 livroFisico.prototype.mostrarInformacoes = function () {
-  return `${this.titulo}, de ${this.autor}, tem ${this.numeroPaginas} páginas`
+  return `\n${this.titulo}, de ${this.autor}, tem ${this.numeroPaginas} páginas`
 }
 
 livroFisico.prototype.tipo = function () {
@@ -79,10 +79,9 @@ function livroDigital({ titulo, autor, numeroPaginas, formato}) { // child/ deri
   this.formato = formato
 }
 
-// Estudar (Establish the inheritance relationship)
+// Establish the inheritance relationship)
 livroDigital.prototype = Object.create(livroFisico.prototype) // creates the inheritance link
 livroDigital.prototype.constructor = livroDigital // corrects the constructor reference after replacing the prototype
-console.log(livroDigital.prototype.constructor === livroDigital,"\n") // true
 
 livroDigital.prototype.abrir = function () {
   return `A abrir o livro no formato ${this.formato}\n`
@@ -99,7 +98,6 @@ const SteveJobsBiografia_Digital = new livroDigital({
   formato: "PDF"
 })
 
-// Study
 console.log(MeuPeDeLaranjaLima_Fisico.mostrarInformacoes())
 console.log(MeuPeDeLaranjaLima_Fisico.tipo())
 console.log(MeuPeDeLaranjaLima_Fisico.abrir())
@@ -111,10 +109,12 @@ console.log(SteveJobsBiografia_Digital.abrir())
 console.log(Object.getPrototypeOf(SteveJobsBiografia_Digital) === livroDigital.prototype) // motivo
 console.log(Object.getPrototypeOf(livroDigital.prototype) === livroFisico.prototype) 
 
+// Study
 console.log(SteveJobsBiografia_Digital instanceof livroDigital)
 console.log(SteveJobsBiografia_Digital instanceof livroFisico)
 console.log(MeuPeDeLaranjaLima_Fisico instanceof livroFisico)
 console.log(MeuPeDeLaranjaLima_Fisico instanceof livroDigital)
+console.log(livroDigital.prototype.constructor === livroDigital,"\n") // true
 
 /* prototype chain (Livro digital)
 
