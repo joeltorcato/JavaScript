@@ -70,7 +70,7 @@ livroFisico.prototype.abrir = function () {
 
 // Livro digital
 
-function livroDigital({ titulo, autor, numeroPaginas, formato}) { // child/ derived type
+function livroDigital({ titulo, autor, numeroPaginas, formato}) { // child/derived type
   livroFisico.call(this, {
     titulo,
     autor,
@@ -79,7 +79,7 @@ function livroDigital({ titulo, autor, numeroPaginas, formato}) { // child/ deri
   this.formato = formato
 }
 
-// Establish the inheritance relationship)
+// Establish the inheritance (relationship)
 livroDigital.prototype = Object.create(livroFisico.prototype) // creates the inheritance link
 livroDigital.prototype.constructor = livroDigital // corrects the constructor reference after replacing the prototype
 
@@ -106,11 +106,11 @@ console.log(SteveJobsBiografia_Digital.mostrarInformacoes())
 console.log(SteveJobsBiografia_Digital.tipo())
 console.log(SteveJobsBiografia_Digital.abrir())
 
-console.log(Object.getPrototypeOf(SteveJobsBiografia_Digital) === livroDigital.prototype) // motivo
-console.log(Object.getPrototypeOf(livroDigital.prototype) === livroFisico.prototype) 
+console.log(Object.getPrototypeOf(SteveJobsBiografia_Digital) === livroDigital.prototype) 
+console.log(Object.getPrototypeOf(livroDigital.prototype) === livroFisico.prototype, "\n") 
 
 // Study
-console.log(SteveJobsBiografia_Digital instanceof livroDigital)
+console.log(SteveJobsBiografia_Digital instanceof livroDigital) //object instanceof constructor
 console.log(SteveJobsBiografia_Digital instanceof livroFisico)
 console.log(MeuPeDeLaranjaLima_Fisico instanceof livroFisico)
 console.log(MeuPeDeLaranjaLima_Fisico instanceof livroDigital)
@@ -126,4 +126,8 @@ SteveJobsBiografia_Digital -> livroDigital.prototype -> livroFisico.prototype
 
 MeuPeDeLaranjaLime_Fisico -> livroFisico.prototype -> Object.prototype
 -> null (undefined)
+*/
+
+/* Child -> can access parent
+Paren -> cannot access child-specific properties
 */
