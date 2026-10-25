@@ -63,14 +63,14 @@ from promise -> peding to promise fulfilled
 */
 
 async function adicionarLivro() {
-  const tipo = await perguntar("1- Digital | 2- Físico: ")
-  const titulo = await perguntar("Título: ")
-  const autor = await perguntar("Autor: ")
-  const numeroPaginas = await perguntar("Número de páginas: ")
+  const tipo = await perguntar("\n1- Digital ou 2- Físico: ")
 
   let livro
   
-  if (tipo == 1) {
+  if (tipo == 1 || tipo.toLowerCase() == "digital") {
+    const titulo = await perguntar("Título: ")
+    const autor = await perguntar("Autor: ")
+    const numeroPaginas = await perguntar("Número de páginas: ")
     const formato = await perguntar("Formato: ")
     livro = new livroDigital ({
       titulo,
@@ -78,23 +78,27 @@ async function adicionarLivro() {
       numeroPaginas,
       formato
     })
-  } else if (tipo == 2) {
+    console.log("\nLivro digital criado com sucesso!\n")
+    interactiveTerminal()
+  } else if (tipo == 2 || tipo.toLowerCase() == "físico") {
+    const titulo = await perguntar("Título: ")
+    const autor = await perguntar("Autor: ")
+    const numeroPaginas = await perguntar("Número de páginas: ")
     livro = new livroFisico ({
       titulo,
       autor,
       numeroPaginas
     })
+     console.log("\nLivro físico criado com sucesso!\n")
+     interactiveTerminal()
   } else {
     console.log("Insira um valor válido.")
     rl.close()
   }
-  console.log(livro)
-
-  rl.close()
 }
 
 async function interactiveTerminal() {
-  const resposta = await perguntar("1- Adicionar um livro \n2- Escolher livro \n\nResposta: ")
+  const resposta = await perguntar("\nMenu interativo \n\n1- Adicionar um livro \n2- Escolher livro \n\nResposta: ")
 
   if (resposta == 1) {
     adicionarLivro()
@@ -108,7 +112,8 @@ async function interactiveTerminal() {
 interactiveTerminal()
 
 escolherLivro = function() {
-  console.log(`\n${this.titulo}\n`)
+  console.log(`\n${livroDigital.prototype.titulo}`)
+  console.log(`${livroFisico.prototype.titulo}`)
 
   rl.close()
 }
