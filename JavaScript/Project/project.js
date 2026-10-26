@@ -139,13 +139,20 @@ escolherLivro = function() {
 
   console.log("A posição do livro é", position, "\n")
 
-  books.splice(0, 1) // splice(start at index, remove)
+  const booksWithManyPages = books.filter((book) => // Array containing all matching objects
+  book.numeroPaginas >= 100)
+
+  console.log(booksWithManyPages)
+
+  books.splice(0, 2) // splice(start at index, remove 1 item)
   console.log(books) // Question: Is always the index that I want remove and 1 to remove
 
-  const index = books.findIndex((book) => book.numeroPaginas >= 250)
+  const index = books.findIndex((book) => book.numeroPaginas >= 100)
   if (index !== -1) { // Question: If the index is difent from -1 (-1 means false)
-    books.splice(index, 1) 
+    books.splice(index, 2) 
   }
+
+  console.log(book)
 
   rl.close()
 }
