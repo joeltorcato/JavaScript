@@ -6,19 +6,21 @@ let rl = readline.createInterface({
 })
 
 // Livro
-function livro({titulo, autor, numeroPaginas, avaliacao}) {
+function livro({titulo, autor, numeroPaginas, avaliacao, idioma}) {
   this.titulo = titulo;
   this.autor = autor;
   this.numeroPaginas = numeroPaginas;
-  this.avaliacao = avaliacao
+  this.avaliacao = avaliacao;
+  this.idioma = idioma
 }
 
 // Livro físico
-function livroFisico({titulo, autor, numeroPaginas, avaliacao}) {
+function livroFisico({titulo, autor, numeroPaginas, idioma, avaliacao}) {
   livro.call(this, {
     titulo,
     autor,
     numeroPaginas,
+    idioma,
     avaliacao // Just when the user finish the book
   })
 }
@@ -28,11 +30,12 @@ livroFisico.prototype = Object.create(livro.prototype)
 livroFisico.prototype.constructor = livro
 
 // Livro digital
-function livroDigital({titulo, autor, numeroPaginas, avaliacao, formato}) {
+function livroDigital({titulo, autor, numeroPaginas, idioma, avaliacao, formato}) {
   livro.call(this, {
     titulo,
     autor,
     numeroPaginas,
+    idioma,
     avaliacao
   })
   this.formato = formato;
@@ -46,6 +49,7 @@ const SteveJobsBiografia = new livroDigital({
   titulo: "A biografia de Steve Jobs",
   autor: "Walter Isaacson",
   numeroPaginas: 607,
+  idioma: "English",
   formato: "PDF"
 })
 
