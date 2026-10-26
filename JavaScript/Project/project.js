@@ -129,7 +129,7 @@ escolherLivro = function() {
     console.log(book.titulo) // undefined
   }
   console.log("\nNeste momento existem", books.length, "livros\n")
-  const book = books.find((book) => // find
+  const book = books.find((book) => // find returns the first object that satisfies a condition
   book.numeroPaginas <= 250) 
   console.log(book,"\n")
   // console.log(book.titulo, "tem", book.numeroPaginas, "\n") Returns an error if the number of pages is greater than that of any book
