@@ -12,6 +12,7 @@ function livro({titulo, autor, numeroPaginas, avaliacao, idioma}) {
   this.numeroPaginas = numeroPaginas;
   this.avaliacao = avaliacao;
   this.idioma = idioma
+  // Current page (array)
 }
 
 // Livro físico
@@ -73,42 +74,9 @@ resolve means: the asncy operation succeeded. here is its result
 from promise -> peding to promise fulfilled
 */
 
-const books = []
-books.push(SteveJobsBiografia)
-books.push(MeuPeDeLaranjaLima)
-
-async function adicionarLivro() {
-  const tipo = await perguntar("\n1- Digital ou 2- Físico: ")
-  
-  if (tipo == 1 || tipo.toLowerCase() == "digital") {
-    const titulo = await perguntar("Título: ")
-    const autor = await perguntar("Autor: ")
-    const numeroPaginas = await perguntar("Número de páginas: ")
-    const formato = await perguntar("Formato: ")
-    livro = new livroDigital ({
-      titulo,
-      autor,
-      numeroPaginas,
-      formato
-    })
-    console.log("\nLivro digital criado com sucesso!\n")
-    interactiveTerminal()
-  } else if (tipo == 2 || tipo.toLowerCase() == "físico") {
-    const titulo = await perguntar("Título: ")
-    const autor = await perguntar("Autor: ")
-    const numeroPaginas = await perguntar("Número de páginas: ")
-    livro = new livroFisico ({
-      titulo,
-      autor,
-      numeroPaginas
-    })
-     console.log("\nLivro físico criado com sucesso!\n")
-     interactiveTerminal()
-  } else {
-    console.log("Insira um valor válido.")
-    rl.close()
-  }
-}
+const livros = []
+// livros.push(SteveJobsBiografia)
+// livros.push(MeuPeDeLaranjaLima)
 
 async function interactiveTerminal() {
   const resposta = await perguntar("\nMenu interativo \n\n1- Adicionar um livro \n2- Escolher livro \n\nResposta: ")
@@ -119,40 +87,65 @@ async function interactiveTerminal() {
     escolherLivro()
   } else {
     console.log("Insira um valor válido\n")
+    interactiveTerminal()
   }
 }
 
 interactiveTerminal()
 
-escolherLivro = function() {
-  for (const book of books) {
-    console.log(book.titulo) // undefined
+async function adicionarLivro() {
+  const tipo = await perguntar("\n1- Digital ou 2- Físico: ")
+  
+  if (tipo == 1 || tipo.toLowerCase() == "digital") {
+    const titulo = await perguntar("Título: ")
+    const autor = await perguntar("Autor: ")
+    const numeroPaginas = await perguntar("Número de páginas: ")
+    const idioma = await perguntar("Idioma: ")
+    const formato = await perguntar("Formato: ")
+    const livro = new livroDigital ({
+      titulo,
+      autor,
+      numeroPaginas,
+      idioma,
+      formato
+    })
+    livros.push(livro)
+    console.log(`\nO livro digital "${livro.titulo}" foi criado com sucesso!\n`)
+    interactiveTerminal()
+  } else if (tipo == 2 || tipo.toLowerCase() == "físico") {
+    const titulo = await perguntar("Título: ")
+    const autor = await perguntar("Autor: ")
+    const numeroPaginas = await perguntar("Número de páginas: ")
+    const idioma = await perguntar("Idioma: ")
+    const livro = new livroFisico ({
+      titulo,
+      autor,
+      numeroPaginas,
+      idioma
+    })
+    livros.push(livro)
+     console.log(`\nO livro físico "${livro.titulo}" foi criado com sucesso!\n`)
+     interactiveTerminal()
+  } else {
+    console.log("Insira um valor válido.")
+    rl.close()
   }
-  console.log("\nNeste momento existem", books.length, "livros\n")
-  const book = books.find((book) => // find returns the first object that satisfies a condition
-  book.numeroPaginas <= 250) 
-  console.log(book,"\n")
-  // console.log(book.titulo, "tem", book.numeroPaginas, "\n") Returns an error if the number of pages is greater than that of any book
-
-  const position = books.findIndex((book) => // findIndex returns the first index that satisfies a condition
-  book.numeroPaginas >= 250)
-
-  console.log("A posição do livro é", position, "\n")
-
-  const booksWithManyPages = books.filter((book) => // Array containing all matching objects
-  book.numeroPaginas >= 100)
-
-  console.log(booksWithManyPages)
-
-  books.splice(0, 2) // splice(start at index, remove 1 item)
-  console.log(books) // Question: Is always the index that I want remove and 1 to remove
-
-  const index = books.findIndex((book) => book.numeroPaginas >= 100)
-  if (index !== -1) { // Question: If the index is difent from -1 (-1 means false)
-    books.splice(index, 2) 
-  }
-
-  console.log(book)
-
-  rl.close()
 }
+
+async function escolherLivro() {
+  let i = 1;
+
+  if (livros.length === 0) {
+    console.log("\nNão existem livro")
+    interactiveTerminal()
+  } else {  
+    console.log(`\nLivros existentes - ${livros.length}\n`)
+        for (const livro of livros) { // Study better
+          console.log(`${i++} - ${livro.titulo}`)
+  }
+    const resposta = await perguntar("\nResposta: ")
+  }
+}
+
+// Interactive selection prompt
+// Deleta the last iteration
