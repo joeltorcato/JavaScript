@@ -147,5 +147,7 @@ async function escolherLivro() {
   }
 }
 
-// Interactive selection prompt
-// Deleta the last iteration
+/* Version two 
+
+Interactive selection prompt
+Deleta the last iteration */
