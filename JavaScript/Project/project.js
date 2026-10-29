@@ -3,6 +3,11 @@ const { perguntar, fecharInterface } = require('./readline/perguntar');
 const createInteractiveTerminal = require('./functions/interactiveTerminal');
 
 const createAdicionarLivro = require('./functions/adicionarLivro');
+
+const createEscolherLivro = require('./functions/escolherLivro');
+
+const createAdicionarPagina = require('./functions/adicionarPagina');
+
 // Livro
 function livro({
   titulo,
@@ -89,6 +94,7 @@ livros.push(SteveJobsBiografia);
 livros.push(MeuPeDeLaranjaLima);
 
 let interactiveTerminal;
+let escolherLivro;
 
 const adicionarLivro = createAdicionarLivro({
   perguntar,
@@ -99,6 +105,21 @@ const adicionarLivro = createAdicionarLivro({
   livros,
 });
 
+const adicionarPagina = createAdicionarPagina({
+  perguntar,
+  interactiveTerminal,
+  adicionarLivro,
+  isParaEscolherLivro: () => escolherLivro(),
+  fecharInterface,
+});
+
+escolherLivro = createEscolherLivro({
+  interactiveTerminal,
+  perguntar,
+  adicionarPagina,
+  livros,
+});
+
 interactiveTerminal = createInteractiveTerminal({
   perguntar,
   adicionarLivro,
@@ -106,73 +127,6 @@ interactiveTerminal = createInteractiveTerminal({
 });
 
 interactiveTerminal();
-
-async function escolherLivro() {
-  let i = 1;
-
-  if (livros.length === 0) {
-    console.log('\nNão existem livro');
-    interactiveTerminal();
-  } else {
-    console.log(`\nLivros existentes - ${livros.length}\n`);
-    for (const livro of livros) {
-      // Study better
-      console.log(`${i++} - ${livro.titulo}`);
-    }
-  }
-  const resposta = await perguntar('\nResposta (Insira o nome do livro): ');
-
-  const livro = livros.find((livro) => {
-    return livro.titulo === resposta;
-  });
-  if (livro === undefined) {
-    console.log('\nInsira um valor válido.\n');
-    interactiveTerminal();
-  }
-  adicionarPagina(livro);
-}
-
-async function adicionarPagina(livro) {
-  if (livro.paginas.length > 0) {
-    console.log('\nAs suas últimas páginas\n');
-    for (let i = 0; i < livro.paginas.length; i++) {
-      console.log(`Página ${livro.paginas[i]}`);
-    }
-  } else {
-    console.log('\nO livro ainda não contém nenhuma página inserida\n');
-  }
-
-  const resposta = await perguntar('\nInsira a página em que ficou: ');
-
-  if (resposta) {
-    livro.paginas.push(resposta);
-    console.log(
-      `\nAcabou de adicionar a página ${resposta} ao livro ${livro.titulo}`,
-    );
-
-    console.log('\nQuer ir para onde?\n');
-    console.log(
-      '1 - Menu\n2 - Adicionar um livro\n3 - Escolher livro\n4 - Sair\n',
-    );
-    const resultado = await perguntar('Resposta: ');
-
-    if (resultado == 1) {
-      interactiveTerminal();
-    } else if (resultado == 2) {
-      adicionarLivro();
-    } else if (resultado == 3) {
-      escolherLivro();
-    } else if (resultado == 4) {
-      fecharInterface();
-    } else {
-      console.log('\nComo não inseriu um valor válido irá sair do programa.\n');
-      fecharInterface();
-    }
-  } else {
-    console.log('\nInsira uma página válida.');
-    interactiveTerminal();
-  }
-}
 
 /* 29 -> Study to gain a deep understanding of import and export processes, as well 
 as how each line functions and the rationale behinf it. 
