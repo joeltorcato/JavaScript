@@ -44,77 +44,84 @@ console.log(she.talk()); // talking */
 
 // Livro físico
 
-function livroFisico({titulo, autor, numeroPaginas}) { // parent/base type
+function livroFisico({ titulo, autor, numeroPaginas }) {
+  // parent/base type
   this.titulo = titulo;
   this.autor = autor;
   this.numeroPaginas = numeroPaginas;
 }
 
 livroFisico.prototype.mostrarInformacoes = function () {
-  return `\n${this.titulo}, de ${this.autor}, tem ${this.numeroPaginas} páginas`
-}
+  return `\n${this.titulo}, de ${this.autor}, tem ${this.numeroPaginas} páginas`;
+};
 
 livroFisico.prototype.tipo = function () {
-  return "Livro físico"
-}
+  return 'Livro físico';
+};
 
 livroFisico.prototype.abrir = function () {
-  return "Openning the fisic book\n"
-} 
+  return 'Openning the fisic book\n';
+};
 
-  const MeuPeDeLaranjaLima_Fisico = new livroFisico({ 
-  titulo: "Meu pé de laranja Lima",
-  autor: "José Mauro",
+const MeuPeDeLaranjaLima_Fisico = new livroFisico({
+  titulo: 'Meu pé de laranja Lima',
+  autor: 'José Mauro',
   numeroPaginas: 128,
-})
+});
 
 // Livro digital
 
-function livroDigital({ titulo, autor, numeroPaginas, formato}) { // child/derived type
+function livroDigital({ titulo, autor, numeroPaginas, formato }) {
+  // child/derived type
   livroFisico.call(this, {
     titulo,
     autor,
-    numeroPaginas
-  })
-  this.formato = formato
+    numeroPaginas,
+  });
+  this.formato = formato;
 }
 
 // Establish the inheritance (relationship)
-livroDigital.prototype = Object.create(livroFisico.prototype) // creates the inheritance link
-livroDigital.prototype.constructor = livroDigital // corrects the constructor reference after replacing the prototype
+livroDigital.prototype = Object.create(livroFisico.prototype); // creates the inheritance link
+livroDigital.prototype.constructor = livroDigital; // corrects the constructor reference after replacing the prototype
 
 livroDigital.prototype.abrir = function () {
-  return `A abrir o livro no formato ${this.formato}\n`
-} 
+  return `A abrir o livro no formato ${this.formato}\n`;
+};
 
 livroDigital.prototype.tipo = function () {
-  return "Livro digital"
-} 
+  return 'Livro digital';
+};
 
 const SteveJobsBiografia_Digital = new livroDigital({
-  titulo: "A biografia de Steve Jobs",
-  autor: "Walter Isaacson",
+  titulo: 'A biografia de Steve Jobs',
+  autor: 'Walter Isaacson',
   numeroPaginas: 617,
-  formato: "PDF"
-})
+  formato: 'PDF',
+});
 
-console.log(MeuPeDeLaranjaLima_Fisico.mostrarInformacoes())
-console.log(MeuPeDeLaranjaLima_Fisico.tipo())
-console.log(MeuPeDeLaranjaLima_Fisico.abrir())
+console.log(MeuPeDeLaranjaLima_Fisico.mostrarInformacoes());
+console.log(MeuPeDeLaranjaLima_Fisico.tipo());
+console.log(MeuPeDeLaranjaLima_Fisico.abrir());
 
-console.log(SteveJobsBiografia_Digital.mostrarInformacoes())
-console.log(SteveJobsBiografia_Digital.tipo())
-console.log(SteveJobsBiografia_Digital.abrir())
+console.log(SteveJobsBiografia_Digital.mostrarInformacoes());
+console.log(SteveJobsBiografia_Digital.tipo());
+console.log(SteveJobsBiografia_Digital.abrir());
 
-console.log(Object.getPrototypeOf(SteveJobsBiografia_Digital) === livroDigital.prototype) 
-console.log(Object.getPrototypeOf(livroDigital.prototype) === livroFisico.prototype, "\n") 
+console.log(
+  Object.getPrototypeOf(SteveJobsBiografia_Digital) === livroDigital.prototype,
+);
+console.log(
+  Object.getPrototypeOf(livroDigital.prototype) === livroFisico.prototype,
+  '\n',
+);
 
 // Study
-console.log(SteveJobsBiografia_Digital instanceof livroDigital) //object instanceof constructor
-console.log(SteveJobsBiografia_Digital instanceof livroFisico)
-console.log(MeuPeDeLaranjaLima_Fisico instanceof livroFisico)
-console.log(MeuPeDeLaranjaLima_Fisico instanceof livroDigital)
-console.log(livroDigital.prototype.constructor === livroDigital,"\n") // true
+console.log(SteveJobsBiografia_Digital instanceof livroDigital); //object instanceof constructor
+console.log(SteveJobsBiografia_Digital instanceof livroFisico);
+console.log(MeuPeDeLaranjaLima_Fisico instanceof livroFisico);
+console.log(MeuPeDeLaranjaLima_Fisico instanceof livroDigital);
+console.log(livroDigital.prototype.constructor === livroDigital, '\n'); // true
 
 /* prototype chain (Livro digital)
 

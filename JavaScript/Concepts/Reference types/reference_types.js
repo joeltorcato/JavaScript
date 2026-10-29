@@ -2,10 +2,9 @@
 
 // Object
 
-let person = 
-{
-  firstName: "Joel",
-  lastName: "Fernandes",
+let person = {
+  firstName: 'Joel',
+  lastName: 'Fernandes',
   age: 16,
 };
 

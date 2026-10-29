@@ -5,7 +5,7 @@ resultData.set('lastResult', null);
 
 const germany = {
   name: 'Germany',
-  population: 82
+  population: 82,
 }; // It was deleted
 
 resultData.set(germany, 0.89);
@@ -21,5 +21,5 @@ console.log(resultData);
 console.log(resultData.get('Average')); // 33.89 (Map)
 console.log(resultData.Average); // undefined (Object)
 
- resultData.delete(germany);
- console.log(resultData);
+resultData.delete(germany);
+console.log(resultData);

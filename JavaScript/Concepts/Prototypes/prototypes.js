@@ -63,7 +63,8 @@ function Livro(opcoes) {
 }
 */
 
-function Livro({ nome, autor, numeroPaginas, marcador, avaliacao }) { // objeto de opção com desestruturação
+function Livro({ nome, autor, numeroPaginas, marcador, avaliacao }) {
+  // objeto de opção com desestruturação
   this.nome = nome;
   this.autor = autor;
   this.numeroPaginas = numeroPaginas;
@@ -71,63 +72,60 @@ function Livro({ nome, autor, numeroPaginas, marcador, avaliacao }) { // objeto 
   this.avaliacao = avaliacao;
 } // Cria propriedades próprias em cada livro (propriedade própria)
 
+Livro.prototype.loja = 'Fnac'; // é um objeto associado (comundo a todos os livros, steve jobs biografia, meu pé de laranja lima, entre outros)
 
-
-Livro.prototype.loja = 'Fnac' // é um objeto associado (comundo a todos os livros, steve jobs biografia, meu pé de laranja lima, entre outros)
-
-Livro.prototype.mostrarRequesitos = function () { // propriedade do protótipo
-  console.log(`O nome do livro é ${this.nome}`)
-  console.log(`Tu compraste à loja da ${Livro.prototype.loja}`) // this.loja (Fnac)
-}
+Livro.prototype.mostrarRequesitos = function () {
+  // propriedade do protótipo
+  console.log(`O nome do livro é ${this.nome}`);
+  console.log(`Tu compraste à loja da ${Livro.prototype.loja}`); // this.loja (Fnac)
+};
 
 /* const SteveJobsBiografia = new Livro('A biografia de Steve Jobs', 'Walter Isaacson', 607, 'Muito bom', false)
 const MeuPeDeLaranjaLima = new Livro('Meu pé de laranja lima', 'José Mauro', 128, undefined,'Bom') */
 
- const SteveJobsBiografia = new Livro({ 
-  nome: "A biografia de Steve Jobs",
-  autor: "Walter Isaacson",
+const SteveJobsBiografia = new Livro({
+  nome: 'A biografia de Steve Jobs',
+  autor: 'Walter Isaacson',
   numeroPaginas: 607,
-  loja: "Worten" // Não funciona
-})
+  loja: 'Worten', // Não funciona
+});
 
 const MeuPeDeLaranjaLima = new Livro({
-  avaliacao: "Bom",
+  avaliacao: 'Bom',
   numeroPaginas: 128,
-  autor: "José Mauro",
-  nome: "Meu pé de laranja lima",
-  marcador: true
-}) 
+  autor: 'José Mauro',
+  nome: 'Meu pé de laranja lima',
+  marcador: true,
+});
 
-MeuPeDeLaranjaLima.loja = "Bertrand"
+MeuPeDeLaranjaLima.loja = 'Bertrand';
 
-console.log(SteveJobsBiografia.loja) // Fnac
-console.log(MeuPeDeLaranjaLima.loja) // Bertrand
+console.log(SteveJobsBiografia.loja); // Fnac
+console.log(MeuPeDeLaranjaLima.loja); // Bertrand
 
-MeuPeDeLaranjaLima.mostrarRequesitos()
-Livro.prototype.mostrarRequesitos.call(MeuPeDeLaranjaLima)
-SteveJobsBiografia.mostrarRequesitos()
+MeuPeDeLaranjaLima.mostrarRequesitos();
+Livro.prototype.mostrarRequesitos.call(MeuPeDeLaranjaLima);
+SteveJobsBiografia.mostrarRequesitos();
 
-SteveJobsBiografia.avaliacao = 'Muito bom'
+SteveJobsBiografia.avaliacao = 'Muito bom';
 
-console.log(SteveJobsBiografia.numeroPaginas)
-console.log(MeuPeDeLaranjaLima.avaliacao)
-console.log(MeuPeDeLaranjaLima.marcador)
+console.log(SteveJobsBiografia.numeroPaginas);
+console.log(MeuPeDeLaranjaLima.avaliacao);
+console.log(MeuPeDeLaranjaLima.marcador);
 // console.log(SteveJobsBiografia.avaliacao)
 
 Livro.prototype.paginas = function () {
-  console.log(`O número de páginas é de ${this.numeroPaginas}`)
-}
+  console.log(`O número de páginas é de ${this.numeroPaginas}`);
+};
 
+MeuPeDeLaranjaLima.paginas();
 
-MeuPeDeLaranjaLima.paginas()
+console.log(SteveJobsBiografia.hasOwnProperty('nome')); // propriedade do objeto
+console.log(MeuPeDeLaranjaLima.hasOwnProperty('avaliacao'));
+console.log(SteveJobsBiografia.hasOwnProperty('loja'));
 
-console.log(SteveJobsBiografia.hasOwnProperty('nome')) // propriedade do objeto
-console.log(MeuPeDeLaranjaLima.hasOwnProperty('avaliacao'))
-console.log(SteveJobsBiografia.hasOwnProperty('loja'))
-
-console.log(Object.getPrototypeOf(SteveJobsBiografia) === Livro.prototype)
-console.log(Object.getPrototypeOf(Livro.prototype) === Object.prototype)
-console.log(SteveJobsBiografia.dinheiro)
-
+console.log(Object.getPrototypeOf(SteveJobsBiografia) === Livro.prototype);
+console.log(Object.getPrototypeOf(Livro.prototype) === Object.prototype);
+console.log(SteveJobsBiografia.dinheiro);
 
 // propriedade própria -> propriedade do protótipo -> propriedade do objeto -> null (undefined)

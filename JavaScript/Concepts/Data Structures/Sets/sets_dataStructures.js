@@ -3,22 +3,23 @@ const ids = new Set();
 ids.add('abc');
 ids.add(0);
 ids.add(0);
-ids.add(false)
+ids.add(false);
 ids.add({
   name: 'Joel',
   age: 16,
-  single: true
-})
+  single: true,
+});
 
-for (const showsIds of ids) {  // for-of loop
-  if (typeof showsIds === 'boolean') { // It is equal to if (showsIds === true || false)
-    console.log("Has boolean values")
-  } else
-  console.log(showsIds)  
+for (const showsIds of ids) {
+  // for-of loop
+  if (typeof showsIds === 'boolean') {
+    // It is equal to if (showsIds === true || false)
+    console.log('Has boolean values');
+  } else console.log(showsIds);
 }
 
-console.log(ids.has(true)) // false
-console.log(ids.has('abc')) // true
+console.log(ids.has(true)); // false
+console.log(ids.has('abc')); // true
 
 console.log(ids);
 

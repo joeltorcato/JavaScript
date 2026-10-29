@@ -2,7 +2,7 @@
 
 var a = 0;
 let b = 0;
-const c = 0; 
+const c = 0;
 
 console.log(`Global: ${a}`);
 console.log(`Global: ${b}`);
@@ -24,4 +24,4 @@ function firstFunction() {
   console.log(`Function: ${c}`);
 }
 
-firstFunction()
+firstFunction();

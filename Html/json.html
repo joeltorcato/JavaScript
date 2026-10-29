@@ -1,15 +1,14 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Joel Torcato | JSON</title>
-</head>
-<body>
-  <script src="/JavaScript/JSON/json.json"></script>
-  <script type="text/javascript">
-    let companies = 
-`[
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Joel Torcato | JSON</title>
+  </head>
+  <body>
+    <script src="/JavaScript/JSON/json.json"></script>
+    <script type="text/javascript">
+      let companies = `[
   {
     "name": "Big Corporation",
     "NumberOfEmployees": 10000,
@@ -22,9 +21,9 @@
     "ceo": null,
     "rating": 4.3
   }
-]`
-console.log(JSON.parse(companies)[0].name);
-console.log(JSON.parse(companies));
-  </script>
-</body>
+]`;
+      console.log(JSON.parse(companies)[0].name);
+      console.log(JSON.parse(companies));
+    </script>
+  </body>
 </html>
