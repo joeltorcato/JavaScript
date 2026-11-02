@@ -128,7 +128,7 @@ interactiveTerminal = createInteractiveTerminal({
 
 interactiveTerminal();
 
-/* 29 -> Study to gain a deep understanding of import and export processes, as well 
+/* Study to gain a deep understanding of import and export processes, as well 
 as how each line functions and the rationale behinf it. 
 Execute import and export operations for all functions and users */
 
