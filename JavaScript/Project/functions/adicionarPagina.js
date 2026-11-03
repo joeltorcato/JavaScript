@@ -2,7 +2,7 @@ function createAdicionarPagina({
   perguntar,
   interactiveTerminal,
   adicionarLivro,
-  isParaEscolherLivro,
+  irParaEscolherLivro,
   fecharInterface,
 }) {
   return async function adicionarPagina(livro) {
@@ -27,16 +27,16 @@ function createAdicionarPagina({
       console.log(
         '1 - Menu\n2 - Adicionar um livro\n3 - Escolher livro\n4 - Sair\n',
       );
-      const resultado = await perguntar('Resposta: ');
+      const resultado = Number((await perguntar('Resposta: ')).trim()); // .trim() -> Remove space
 
-      if (resultado == 1) {
-        interactiveTerminal();
-      } else if (resultado == 2) {
-        adicionarLivro();
-      } else if (resultado == 3) {
-        isParaEscolherLivro();
-      } else if (resultado == 4) {
-        fecharInterface();
+      if (resultado === 1) {
+        await interactiveTerminal();
+      } else if (resultado === 2) {
+        await adicionarLivro();
+      } else if (resultado === 3) {
+        await irParaEscolherLivro();
+      } else if (resultado === 4) {
+        await fecharInterface();
       } else {
         console.log(
           '\nComo não inseriu um valor válido irá sair do programa.\n',
@@ -45,7 +45,7 @@ function createAdicionarPagina({
       }
     } else {
       console.log('\nInsira uma página válida.');
-      interactiveTerminal();
+      await interactiveTerminal();
     }
   };
 }
