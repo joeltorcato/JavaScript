@@ -1,6 +1,7 @@
 const { livroDigital, livroFisico } = require('./livros');
 
 const SteveJobsBiografia = new livroDigital({
+  // SteveJobsBiografia -> name of a variable that refers to your book object
   titulo: 'A biografia de Steve Jobs',
   autor: 'Walter Isaacson',
   numeroPaginas: 607,
