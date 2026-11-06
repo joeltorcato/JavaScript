@@ -1,81 +1,87 @@
-const names = ["Max", "Manu", "Julie"];
+function push() {
+  // push (adding element to the end)
 
-// Index starts at zero
-console.log(names[0]); // Max
-names[0] = "Joel";
-console.log(names[0]); // Joel
-console.log(names.length); // 3 = ['Joel', 'Manu', 'Julie']
-console.log(names);
-names[10] = "Simão";
-console.log(names); // 7 empty items
-console.log(names.length); // 11 (The lenght is not the last existing index)
+  const letter = ["A", "B"];
+  console.log("\nBefore: ", letter); // ['A', 'B']
 
-// push (adding element to the end)
+  const result = letter.push("D", "C");
 
-const letter = ["A", "B"];
-console.log("Before: ", letter); // A, B
+  console.log("After: ", letter); // ['A', 'B', 'D', 'C']
+  console.log("Returned: ", result); // 4
+  console.log("Lenght: ", letter.length); // 4
+}
 
-const result = letter.push("D", "C");
+function pop() {
+  // pop (removing th last element)
+  let colours = ["Red", "Blue", "Green"];
+  console.log("\nBefore: ", colours); // ['Red', 'Blue', 'Green']
 
-console.log("After: ", letter); // A, B ,D, C
-console.log("Returned: ", result); // 4
-console.log("Lenght: ", letter.length);
+  const removed = colours.pop();
 
-// pop (removing th last element)
-const colours = ["Red", "Blue", "Green"];
-console.log("Before: ", colours); // Red, Blue, Green
+  console.log("After: ", colours); // ['Red', 'Blue']
+  console.log("Returned: ", removed); // Green
+  console.log("Lenght: ", colours.length); // 2
 
-const removed = colours.pop();
-console.log("After: ", colours); // Red, Blue
-console.log("Returned: ", removed);
-console.log("Lenght: ", colours.length); // 2
+  colours = [];
 
-// Optional experimentation (method pop)
-const car = [];
-console.log(car);
-console.log(car.length);
+  console.log(colours); // []
+  console.log(colours.length); // 0
+}
 
-// unshift (adding element to the beginning)
-const numbers = [10, 20, 30];
-console.log(numbers[1]); // 20
-console.log(numbers.length); // 3
+function unshift() {
+  // unshift (adding element to the beginning)
 
-const adding = numbers.unshift(5, 7);
+  const names = ["Ben", "Cara"];
+  console.log("\nBefore: ", names); // ['Ben', 'Cara']
 
-console.log(numbers); // 5, 7, 10, 20, 30
-console.log(numbers[1]); // 7
-console.log(numbers.length); // 4
+  const result = names.unshift("Ana");
 
-// shift() - Removing the first element
+  console.log("After: ", names); // ['Ana', Ben', 'Cara']
+  console.log("Returned: ", result); // 3
+  console.log("Lenght: ", names.length); // 3
+  console.log("Index 1: ", names[1]); // Ben
+}
 
-const queue = ["Ana", "Ben", "Cara"];
-console.log("Before: ", queue); // ["Ana", "Ben", "Cara"]
+function shift() {
+  // shift() - Removing the first element
 
-const b = queue.shift();
+  const queue = ["Ana", "Ben", "Cara"];
+  console.log("\nBefore: ", queue); // ['Ana', 'Ben', 'Cara']
 
-console.log("After: ", queue);
-console.log("Returned: ", b);
-console.log("Lenght", queue.length);
-console.log("Index [0]: ", queue[0]);
+  const removed = queue.shift();
 
-// splice (changing elements at specific positions)
+  console.log("After: ", queue); // ['Ben', 'Cara']
+  console.log("Returned: ", removed); // Ana
+  console.log("Lenght", queue.length); // 2
+  console.log("Index [0]: ", queue[0]); // Ben
+}
 
-// Removing element
-const esports = [10, 20, 30, 40];
-console.log("Before: ", esports);
+function splice() {
+  // splice (changing elements at specific positions)
 
-const remov = esports.splice(1, 2);
+  // Removing element
+  const numbers = [10, 20, 30, 40];
+  console.log("\nBefore: ", numbers); // [10, 20, 30, 40]
 
-console.log("After: ", esports); // [10, 20]
-console.log("Returned: ", remov); // [30, 40]
-console.log("Lenght: ", esports.length); // 2
+  const remov = numbers.splice(1, 2);
 
-// Adding elements
-const values = [10, 30];
-console.log("Before: ", values); // [10, 30]
+  console.log("After: ", numbers); // [10, 40]
+  console.log("Returned: ", remov); // [20, 30]
+  console.log("Lenght: ", numbers.length); // 2
 
-const a = values.splice(1, 0, 20);
+  // Adding elements
+  const values = [10, 30];
+  console.log("\nBefore: ", values); // [10, 30]
 
-console.log("After: ", values); // [10, 20, 30]
-console.log("Returned: ", removed); // []
-console.log("Lenght: ", values.length); // 3
+  const removed = values.splice(1, 0, 20);
+
+  console.log("After: ", values); // [10, 20, 30]
+  console.log("Returned: ", removed); // []
+  console.log("Lenght: ", values.length); // 3
+}
+
+push();
+pop();
+unshift();
+shift();
+splice();
