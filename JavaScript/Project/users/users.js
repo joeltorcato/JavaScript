@@ -7,7 +7,7 @@ const SteveJobsBiografia = new livroDigital({
   numeroPaginas: 607,
   idioma: 'English',
   formato: 'PDF',
-  paginas: [10, 20],
+  paginas: [10, 20, 30, 40, 50, 60],
 });
 
 const MeuPeDeLaranjaLima = new livroFisico({
