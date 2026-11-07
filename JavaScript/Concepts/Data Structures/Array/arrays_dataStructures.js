@@ -57,27 +57,38 @@ function shift() {
 }
 
 function splice() {
-  // splice (changing elements at specific positions)
+  // splice (changing elements at specific positions) (startIndex, deleteCount, value1, value2, value99);
 
   // Removing element
   const numbers = [10, 20, 30, 40];
   console.log("\nBefore: ", numbers); // [10, 20, 30, 40]
 
-  const remov = numbers.splice(1, 2);
+  const removed = numbers.splice(1, 2);
 
   console.log("After: ", numbers); // [10, 40]
-  console.log("Returned: ", remov); // [20, 30]
+  console.log("Returned: ", removed); // [20, 30]
   console.log("Lenght: ", numbers.length); // 2
 
   // Adding elements
   const values = [10, 30];
   console.log("\nBefore: ", values); // [10, 30]
 
-  const removed = values.splice(1, 0, 20);
+  const adding = values.splice(1, 0, 20);
 
   console.log("After: ", values); // [10, 20, 30]
-  console.log("Returned: ", removed); // []
+  console.log("Returned: ", adding); // []
   console.log("Lenght: ", values.length); // 3
+
+  // Replacing element
+  const scores = [10, 20, 30];
+  console.log("\nBefore: ", scores); // [10, 20, 30]
+
+  const replacing = scores.splice(1, 1, 99, 100);
+
+  console.log("After: ", scores); // [10, 99, 100, 30]
+  console.log("Returned: ", replacing); // [20]
+  console.log("Lenght: ", scores.length); // 4
+  console.log("Index [2]: ", scores[2]); // 100
 }
 
 push();
