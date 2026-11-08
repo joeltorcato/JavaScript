@@ -44,13 +44,13 @@ function createAdicionarPagina({
       }
     }
 
-    if (resposta && livro.paginas.length >= 7) {
+    if (Number.isInteger(resposta) && livro.paginas.length >= 7) {
       livro.paginas.push(resposta);
       livro.paginas.shift();
-      menu();
-    } else if (resposta) {
+      await menu();
+    } else if (Number.isInteger(resposta)) {
       livro.paginas.push(resposta);
-      menu();
+      await menu();
     } else {
       console.log('\nInsira uma página válida.');
       await interactiveTerminal();
