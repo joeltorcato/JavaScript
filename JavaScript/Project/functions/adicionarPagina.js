@@ -16,6 +16,7 @@ function createAdicionarPagina({
     }
 
     const resposta = await perguntar('\nInsira a página em que ficou: ');
+    let ultimaPagina = livro.paginas[livro.paginas.length - 1];
 
     async function menu() {
       console.log(
@@ -44,11 +45,15 @@ function createAdicionarPagina({
       }
     }
 
-    if (Number.isInteger(resposta) && livro.paginas.length >= 7) {
+    if (
+      !isNaN(resposta) &&
+      livro.paginas.length >= 7 &&
+      ultimaPagina < resposta
+    ) {
       livro.paginas.push(resposta);
       livro.paginas.shift();
       await menu();
-    } else if (Number.isInteger(resposta)) {
+    } else if (!isNaN(resposta) && ultimaPagina < resposta) {
       livro.paginas.push(resposta);
       await menu();
     } else {
