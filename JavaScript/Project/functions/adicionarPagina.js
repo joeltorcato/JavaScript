@@ -49,17 +49,26 @@ function createAdicionarPagina({
     }
 
     if (
-      !isNaN(resposta) &&
+      Number.isInteger(resposta) &&
+      resposta > 0 &&
       livro.paginas.length >= 7 &&
       ultimaPagina <= resposta
     ) {
       livro.paginas.push(resposta);
       livro.paginas.shift();
       await menu();
-    } else if (!isNaN(resposta) && ultimaPagina <= resposta) {
+    } else if (
+      Number.isInteger(resposta) &&
+      resposta > 0 &&
+      ultimaPagina <= resposta
+    ) {
       livro.paginas.push(resposta);
       await menu();
-    } else if (!isNaN(resposta) && livro.paginas.length == 0) {
+    } else if (
+      Number.isInteger(resposta) &&
+      resposta > 0 &&
+      livro.paginas.length == 0
+    ) {
       livro.paginas.push(resposta);
       await menu();
     } else {
