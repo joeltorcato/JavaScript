@@ -15,7 +15,10 @@ function createAdicionarPagina({
       console.log('\nO livro ainda não contém nenhuma página inserida\n');
     }
 
-    const resposta = await perguntar('\nInsira a página em que ficou: ');
+    const resposta = Number(
+      await perguntar('\nInsira a página em que ficou: '),
+    );
+
     let ultimaPagina = livro.paginas[livro.paginas.length - 1];
 
     async function menu() {
