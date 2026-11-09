@@ -51,12 +51,15 @@ function createAdicionarPagina({
     if (
       !isNaN(resposta) &&
       livro.paginas.length >= 7 &&
-      ultimaPagina < resposta
+      ultimaPagina <= resposta
     ) {
       livro.paginas.push(resposta);
       livro.paginas.shift();
       await menu();
-    } else if (!isNaN(resposta) && ultimaPagina < resposta) {
+    } else if (!isNaN(resposta) && ultimaPagina <= resposta) {
+      livro.paginas.push(resposta);
+      await menu();
+    } else if (!isNaN(resposta) && livro.paginas.length == 0) {
       livro.paginas.push(resposta);
       await menu();
     } else {
