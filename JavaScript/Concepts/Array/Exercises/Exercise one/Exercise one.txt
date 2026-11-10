@@ -1,0 +1,74 @@
+Yes. You can consult both official documentation and your own JavaScript study files during Stage B.
+
+The goal is to develop independent programming skills, not to memorise syntax.
+
+### Stage B — Rules
+
+| Resource                                      | Allowed? |
+| --------------------------------------------- | -------- |
+| Official documentation (MDN)                  | Yes      |
+| Your `includes() and indexOf().js` file       | Yes      |
+| Your `Mutation and Shared References.js` file | Yes      |
+| Searching for syntax or explanations          | Yes      |
+| Copying an existing exercise solution         | No       |
+| Asking AI to write or fix your code           | No       |
+
+Important: You can review your notes to remember how something works. However, the reasoning and implementation must be yours.
+
+We'll start with one exercise. After evaluating it, I'll give you a second exercise focusing on mutation and shared references.
+
+## Stage B — Exercise 1: Managing a Reading List
+
+Difficulty: Beginner–Intermediate\
+Concepts: Arrays, searching, indexes, conditional statements and Array manipulation.
+
+### Problem
+
+You're developing a simple application that manages a reading list.
+
+The application initially contains four books:
+
+| Index | Book       |
+| ----- | ---------- |
+| 0     | Dune       |
+| 1     | 1984       |
+| 2     | Dune       |
+| 3     | Clean Code |
+
+Your task is to write a JavaScript program that removes a book from the reading list.
+
+### Requirements
+
+1. Create an Array containing the four books.
+2. Create a function that receives a book title
+3. Check whether that book exists in the Array.
+4. If it exists, remove only its first occurrence.
+5. If it doesn't exist, leave the Array unchanged.
+6. Display whether the book was found and show the updated Array.
+
+### Test cases
+
+| Book to remove | Expected behaviour                           |
+| -------------- | -------------------------------------------- |
+| `"Dune"`       | Remove the first Dune, preserving the second |
+| `"The Hobbit"` | No removal; book doesn't exist               |
+| `"1984"`       | Remove 1984                                  |
+
+Run these tests sequentially, using the same Array.
+
+### Restrictions
+
+- Write the implementation yourself, starting from an empty JavaScript file.
+- You may consult documentation and your study files.
+- Don't use AI-generated solutions.
+- You decide which Array methods are appropriate.
+
+### How we'll evaluate your work
+
+I'll examine whether your program works, whether you selected appropriate methods, and whether you understand your implementation.
+
+Your next step: Complete Exercise 1 independently and send me your GitHub file or code.
+
+We'll review it before moving to Exercise 2.
+
+Remember: Stage B evaluates your ability to write code, not just understand it.
