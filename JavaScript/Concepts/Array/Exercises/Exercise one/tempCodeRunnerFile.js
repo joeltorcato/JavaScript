@@ -1,1 +1,0 @@
-index = livros.indexOf(resposta, 0);

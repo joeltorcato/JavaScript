@@ -6,17 +6,15 @@ async function remove() {
   const resposta = await perguntar(
     'Insira o nome do livro que deseja remover: ',
   );
+  let index = livros.indexOf(resposta, 0);
 
-  const index = livros.indexOf(resposta, 0);
-
-  if (livros === resposta) {
-    livros.splice(index, 1);
-  } else {
-    console.log('O livro não foi encontrado');
-    fecharInterface();
+  for (const livro of livros) {
+    if (livro === resposta) {
+      livros.splice(index, 1);
+    }
   }
-  console.log(`O livro ${resposta} foi encontrado`);
-  console.log(livros);
+  console.log(`\nO livro ${resposta} foi encontrado`);
+  console.log(livros, '\n');
   fecharInterface();
 }
 
