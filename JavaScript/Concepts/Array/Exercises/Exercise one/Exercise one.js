@@ -13,21 +13,19 @@ function mostrarLivros() {
   console.log('\n');
 }
 
-async function titulo() {
+async function perguntarUsuario() {
   const resposta = await perguntar(
     'Insira o nome do livro que deseja remover: ',
   );
-  return resposta;
+  remove(resposta);
 }
 
-async function remove() {
-  const resposta = await titulo();
+function remove(nomeLivro) {
+  let index = livros.indexOf(nomeLivro, 0);
 
-  let index = livros.indexOf(resposta, 0);
-
-  if (livros[index] === resposta) {
+  if (livros[index] === nomeLivro) {
     livros.splice(index, 1);
-    console.log(`\nO livro ${resposta} foi removido com sucesso.\n`);
+    console.log(`\nO livro ${nomeLivro} foi removido com sucesso.\n`);
     mostrarLivros();
     fecharInterface();
   } else {
@@ -37,4 +35,4 @@ async function remove() {
   }
 }
 
-remove();
+perguntarUsuario();

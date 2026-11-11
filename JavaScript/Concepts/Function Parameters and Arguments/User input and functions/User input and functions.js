@@ -20,7 +20,7 @@ function showGreeting(name) {
 
 async function askName() {
   const answer = await rl.question("\nYour name: ");
-  // console.log(typeof answer); String
+  // console.log(typeof answer);
 
   showGreeting(answer);
   rl.close();
