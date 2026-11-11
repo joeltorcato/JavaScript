@@ -13,10 +13,16 @@ function mostrarLivros() {
   console.log('\n');
 }
 
-async function remove() {
+async function titulo() {
   const resposta = await perguntar(
     'Insira o nome do livro que deseja remover: ',
   );
+  return resposta;
+}
+
+async function remove() {
+  const resposta = await titulo();
+
   let index = livros.indexOf(resposta, 0);
 
   if (livros[index] === resposta) {
