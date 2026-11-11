@@ -9,7 +9,7 @@ function createGreeting(name) {
 }
 
 const greeting = createGreeting("Ana");
-console.log(greeting + "\n");
+console.log(greeting + "\n"); // Hello, Ana.
 
 // Surrounding scope versus the caller's scope
 

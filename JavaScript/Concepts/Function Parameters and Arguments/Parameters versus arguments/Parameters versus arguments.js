@@ -9,7 +9,8 @@ function greet(name) {
   console.log("Hello, " + name);
 }
 
-greet("Ana"); // Ana = argument
+const name = "Ana";
+greet(name); // Ana = argument
 greet("Ben\n"); // Hello, Ben
 
 // Arguments can come from variable

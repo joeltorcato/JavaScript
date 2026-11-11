@@ -1,0 +1,51 @@
+## 2. Stage B — Exercise 2: Shared References and Array Copies
+
+Difficulty: Beginner–Intermediate
+
+Concepts: Arrays, objects, mutation, reassignment, shared references and shallow copies.
+
+### Problem
+
+You're developing a small application that manages a collection of books.
+
+You need to understand what happens when different variables reference the same Array and when an Array is copied.
+
+### Requirements
+
+1. Create an Array containing two book objects. Each book must have a `title` and a `pages` property.
+2. Create a second variable that references the original Array.
+3. Create a separate, shallow copy of the original Array.
+4. Change the title of the first book through the copied Array.
+5. Check whether the original Array was affected.
+6. Replace the entire second book object in the copied Array with another book.
+7. Check whether this replacement affected the original Array.
+8. Add a third book through the variable sharing the original Array.
+9. Reassign that variable to a completely new Array.
+10. Display the relevant Arrays after each operation to observe their behaviour.
+
+### What I want you to demonstrate
+
+Before executing each modification, predict what will happen.
+
+Then execute your program and compare your predictions with the actual results.
+
+You must understand why the changes affect some Arrays but not others.
+
+You can consult your study files and MDN documentation, but you must develop the implementation independently.
+
+There is no need to use terminal input for this exercise. Focus entirely on the concepts being assessed.
+
+## 3. What happens after Exercise 2?
+
+| Stage                       | Status                                       |
+| --------------------------- | -------------------------------------------- |
+| A — Initial Assessment      | Completed                                    |
+| B — Independent Application | Exercise 1 completed; Exercise 2 in progress |
+| C — Debugging and Reasoning | Next                                         |
+| D — Final Evaluation        | Pending                                      |
+
+Once Exercise 2 is complete, we'll proceed to Stage C and then Stage D.
+
+If your results demonstrate sufficient understanding and independent application, we'll consider Arrays consolidated and advance to Concept 07 — Assignment Operators.
+
+For now, focus only on Exercise 2. You don't need to study additional theory unless you discover something you genuinely don't understand.

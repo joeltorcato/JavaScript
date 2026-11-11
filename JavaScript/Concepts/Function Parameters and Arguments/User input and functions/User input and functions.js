@@ -15,12 +15,11 @@ const rl = readline.createInterface({
 
 function showGreeting(name) {
   console.log("Hello, " + name + "\n");
-  console.log(typeof answer);
 }
 
 async function askName() {
   const answer = await rl.question("\nYour name: ");
-  // console.log(typeof answer);
+  // console.log(typeof answer); String
 
   showGreeting(answer);
   rl.close();

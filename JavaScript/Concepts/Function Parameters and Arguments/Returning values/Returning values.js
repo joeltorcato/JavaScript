@@ -12,6 +12,8 @@ const message = createGreeting("Ana");
 console.log("\n" + message); // Hello, Ana
 console.log(message + "!\n"); // Hello, Ana!
 
+// return vs console.log
+
 function displayGreeting(name) {
   console.log("Hello, " + name);
 }
