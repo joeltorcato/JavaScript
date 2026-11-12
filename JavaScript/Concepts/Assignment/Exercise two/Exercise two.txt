@@ -1,0 +1,35 @@
+Stage B — Exercise 2: Resource Management
+Difficulty: Beginner–Intermediate
+Concept: Assignment Operators
+
+You're creating a simple resource-management program for a game.
+
+Your program must:
+1. Start with 100 units of energy.
+2. Increase the energy by 50 units.
+3. Reduce the energy by 20 units.
+4. Divide the remaining energy equally between 2 players.
+5. Calculate the remainder when the resulting energy is divided by 3.
+6. Display the updated value after each operation.
+Requirements: Use assignment operators, write the program independently and predict the final value before running it.
+
+You may consult MDN if you're unfamiliar with /= or %=.
+
+Portuguese
+
+Etapa B — Exercício 2: Gestão de Recursos
+Dificuldade: Iniciante–Intermédio
+Conceito: Operadores de Atribuição
+
+Estás a criar um programa simples de gestão de recursos para um jogo.
+
+O teu programa deve:
+1. Começar com 100 unidades de energia.
+2. Aumentar a energia em 50 unidades.
+3. Reduzir a energia em 20 unidades.
+4. Dividir igualmente a energia restante entre 2 jogadores.
+5. Calcular o resto da divisão da energia resultante por 3.
+6. Apresentar o valor atualizado após cada operação.
+Requisitos: Utiliza operadores de atribuição, escreve o programa autonomamente e prevê o valor final antes de o executares.
+
+Podes consultar a documentação do MDN caso não conheças os operadores /= ou %=.
