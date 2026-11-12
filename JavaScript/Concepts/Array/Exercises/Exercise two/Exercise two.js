@@ -42,6 +42,6 @@ let newArray = ["I don't know what put here", 'I love chess'];
 reference = newArray;
 
 console.log(books);
-console.log(reference[0]);
+console.log(reference);
 console.log(shallowCopy);
-console.log(newArray[1]);
+console.log(newArray);
