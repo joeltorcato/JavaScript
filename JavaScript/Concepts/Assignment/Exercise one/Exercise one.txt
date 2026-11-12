@@ -1,0 +1,43 @@
+Exercise 1 — Game Score Tracker
+Difficulty: Beginner
+Concept: JavaScript Assignment Operators
+
+Scenario: You're developing a simple game that tracks a player's score.
+
+Your program must perform these operations:
+1. Create a variable representing the player's score, initially 10 points.
+2. The player earns 5 points. Update the score.
+3. The player receives a penalty of 3 points. Update the score.
+4. The player activates a bonus that doubles the current score.
+5. The player loses another 4 points.
+6. Display the updated score after each operation.
+7. Display the final score.
+Requirements
+- Use the assignment operators you've already studied.
+- Don't calculate the final score manually and assign it directly.
+- Write the program independently, starting from an empty JavaScript file.
+- No functions, Arrays or terminal input are necessary.
+Before running your program, predict the final score.
+
+Portuguese
+
+Exercício 1 — Controlo da Pontuação de um Jogo
+Dificuldade: Iniciante
+Conceito: Operadores de Atribuição em JavaScript
+
+Cenário: Estás a desenvolver um jogo simples que regista a pontuação de um jogador.
+
+O teu programa deve realizar estas operações:
+1. Criar uma variável que represente a pontuação do jogador, inicialmente com 10 pontos.
+2. O jogador ganha 5 pontos. Atualizar a pontuação.
+3. O jogador recebe uma penalização de 3 pontos. Atualizar a pontuação.
+4. O jogador ativa um bónus que duplica a pontuação atual.
+5. O jogador perde mais 4 pontos.
+6. Apresentar a pontuação atualizada após cada operação.
+7. Apresentar a pontuação final.
+Requisitos
+- Utilizar os operadores de atribuição que já estudaste.
+- Não calcular manualmente a pontuação final e atribuí-la diretamente.
+- Escrever o programa autonomamente, começando com um ficheiro JavaScript vazio.
+- Não é necessário utilizar funções, Arrays ou introdução de dados pelo terminal.
+Antes de executares o programa, prevê a pontuação final.
