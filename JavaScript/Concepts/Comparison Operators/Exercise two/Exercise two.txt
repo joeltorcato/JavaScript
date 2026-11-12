@@ -1,0 +1,39 @@
+Stage B — Exercise 2: Ticket Availability
+Difficulty: Beginner–Intermediate
+Concept: Comparison Operators
+
+Imagine you're developing a system that checks ticket availability for an event.
+
+Your program must:
+1. Create a variable representing 5 available tickets.
+2. Create another variable representing 3 requested tickets.
+3. Check whether enough tickets are available.
+4. Check whether the requested quantity exceeds the available quantity.
+5. Check whether the requested quantity is exactly equal to the available quantity.
+6. Create a variable representing the maximum number of tickets per customer: 4.
+7. Check whether the requested quantity is within that limit.
+8. Display every comparison result.
+Requirements: Use comparison operators, predict the results before executing your program, and write the implementation independently.
+
+Once you've completed Exercise 2, we'll move to Stage C.
+
+Portuguese
+
+Etapa B — Exercício 2: Disponibilidade de Bilhetes
+Dificuldade: Iniciante–Intermédio
+Conceito: Operadores de Comparação
+
+Imagina que estás a desenvolver um sistema que verifica a disponibilidade de bilhetes para um evento.
+
+O teu programa deve:
+1. Criar uma variável que represente 5 bilhetes disponíveis.
+2. Criar outra variável que represente 3 bilhetes pedidos.
+3. Verificar se existem bilhetes suficientes.
+4. Verificar se a quantidade pedida ultrapassa a quantidade disponível.
+5. Verificar se a quantidade pedida é exatamente igual à quantidade disponível.
+6. Criar uma variável que represente o número máximo de bilhetes por cliente: 4.
+7. Verificar se a quantidade pedida respeita esse limite.
+8. Apresentar o resultado de cada comparação.
+Requisitos: Utiliza operadores de comparação, prevê os resultados antes de executares o programa e escreve a implementação autonomamente.
+
+Assim que concluíres o Exercício 2, avançaremos para a Etapa C.
