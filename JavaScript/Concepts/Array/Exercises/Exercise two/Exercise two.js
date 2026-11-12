@@ -14,10 +14,12 @@ const shallowCopy = [...books];
 
 shallowCopy[0].title = 'Twisted Love'; // Yes, the original array and the reference were affect.
 
-reference[1] = {
+shallowCopy[1] = {
   title: 'Funny Story',
   pages: 308,
-}; // Just the original array was affect.
+};
+
+// shallowCopy and books are two diferent Arrays.
 
 reference.push({
   title: 'Hábitos atómicos',
