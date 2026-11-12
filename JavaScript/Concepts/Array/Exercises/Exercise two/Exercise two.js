@@ -38,10 +38,10 @@ console.log(books);
 console.log(reference);
 console.log(shallowCopy, '\n\n\n');
 
-let newArray;
+let newArray = ["I don't know what put here", 'I love chess'];
 reference = newArray;
 
 console.log(books);
-console.log(reference);
+console.log(reference[0]);
 console.log(shallowCopy);
-console.log(newArray);
+console.log(newArray[1]);
