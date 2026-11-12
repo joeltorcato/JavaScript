@@ -5,23 +5,23 @@ const books = [
   },
   {
     title: 'Meu pé de laranja lima',
-    page: 128,
+    pages: 128,
   },
 ];
 
 const reference = books;
 const shallowCopy = [...books];
 
-reference[0].title = 'Twisted Love'; // Yes, the original array and the shallowCopys were affect.
+shallowCopy[0].title = 'Twisted Love'; // Yes, the original array and the reference were affect.
 
 reference[1] = {
   title: 'Funny Story',
-  page: 308,
+  pages: 308,
 }; // Just the original array was affect.
 
 reference.push({
   title: 'Hábitos atómicos',
-  page: 268,
+  pages: 268,
 });
 
 const newArray = reference;
@@ -30,8 +30,8 @@ console.log(books);
 /*
 [
   { title: 'Twisted Love', pages: 607 },
-  { title: 'Funny Story', page: 308 },
-  { title: 'Hábitos atómicos', page: 268 }
+  { title: 'Funny Story', pages: 308 },
+  { title: 'Hábitos atómicos', pages: 268 }
 ]
 */
 
@@ -39,8 +39,8 @@ console.log(reference);
 /*
 [
   { title: 'Twisted Love', pages: 607 },
-  { title: 'Funny Story', page: 308 },
-  { title: 'Hábitos atómicos', page: 268 }
+  { title: 'Funny Story', pages: 308 },
+  { title: 'Hábitos atómicos', pages: 268 }
 ]
 */
 
@@ -48,7 +48,7 @@ console.log(shallowCopy);
 /*
 [
   { title: 'Twisted Love', pages: 607 },
-  { title: 'Meu pé de laranja lima', page: 128 }
+  { title: 'Meu pé de laranja lima', pages: 128 }
 ]
 */
 
@@ -56,7 +56,7 @@ console.log(newArray);
 /*
 [
   { title: 'Twisted Love', pages: 607 },
-  { title: 'Funny Story', page: 308 },
-  { title: 'Hábitos atómicos', page: 268 }
+  { title: 'Funny Story', pages: 308 },
+  { title: 'Hábitos atómicos', pages: 268 }
 ]
 */
