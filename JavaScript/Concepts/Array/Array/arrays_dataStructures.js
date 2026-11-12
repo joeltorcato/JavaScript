@@ -91,8 +91,17 @@ function splice() {
   console.log("Index [2]: ", scores[2]); // 100
 }
 
+function spliceMinus() {
+  const books = ["Dune", "1984", "Clean Code"];
+
+  books.splice(-1, 1);
+
+  console.log("\n", books); // ['Dune', '1984']
+}
+
 push();
 pop();
 unshift();
 shift();
 splice();
+spliceMinus();
