@@ -9,15 +9,23 @@ const books = [
   },
 ];
 
-const reference = books;
+let reference = books;
 const shallowCopy = [...books];
 
-shallowCopy[0].title = 'Twisted Love'; // Yes, the original array and the reference were affect.
+shallowCopy[0].title = 'Twisted Love';
+
+console.log(books);
+console.log(reference);
+console.log(shallowCopy, '\n\n\n');
 
 shallowCopy[1] = {
   title: 'Funny Story',
   pages: 308,
 };
+
+console.log(books);
+console.log(reference);
+console.log(shallowCopy, '\n\n\n');
 
 // shallowCopy and books are two diferent Arrays.
 
@@ -26,39 +34,14 @@ reference.push({
   pages: 268,
 });
 
-const newArray = reference;
+console.log(books);
+console.log(reference);
+console.log(shallowCopy, '\n\n\n');
+
+let newArray;
+reference = newArray;
 
 console.log(books);
-/*
-[
-  { title: 'Twisted Love', pages: 607 },
-  { title: 'Funny Story', pages: 308 },
-  { title: 'Hábitos atómicos', pages: 268 }
-]
-*/
-
 console.log(reference);
-/*
-[
-  { title: 'Twisted Love', pages: 607 },
-  { title: 'Funny Story', pages: 308 },
-  { title: 'Hábitos atómicos', pages: 268 }
-]
-*/
-
 console.log(shallowCopy);
-/*
-[
-  { title: 'Twisted Love', pages: 607 },
-  { title: 'Meu pé de laranja lima', pages: 128 }
-]
-*/
-
 console.log(newArray);
-/*
-[
-  { title: 'Twisted Love', pages: 607 },
-  { title: 'Funny Story', pages: 308 },
-  { title: 'Hábitos atómicos', pages: 268 }
-]
-*/
