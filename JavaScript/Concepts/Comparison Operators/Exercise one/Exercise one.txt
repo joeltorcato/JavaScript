@@ -1,0 +1,37 @@
+Stage B — Exercise 1: Ticket Eligibility
+Difficulty: Beginner
+Concept: Comparison Operators
+
+Imagine you're developing a ticket validation system.
+
+Your program must:
+1. Create a variable representing a customer's age: 17.
+2. Create a variable representing the minimum age: 18.
+3. Check whether the customer meets the minimum age requirement.
+4. Check whether the customer is younger than the minimum age.
+5. Create two variables containing 25 and "25".
+6. Compare these values using ==, ===, != and !==.
+7. Display the result of each comparison.
+Requirements: Work independently, predict the results before executing the program, and use only the concepts you've already studied.
+
+When you finish, share your GitHub file for review.
+
+Portuguese
+
+Etapa B — Exercício 1: Validação de Bilhetes
+Dificuldade: Iniciante
+Conceito: Operadores de Comparação
+
+Imagina que estás a desenvolver um sistema de validação de bilhetes.
+
+O teu programa deve:
+1. Criar uma variável que represente a idade de um cliente: 17 anos.
+2. Criar uma variável que represente a idade mínima: 18 anos.
+3. Verificar se o cliente cumpre o requisito de idade mínima.
+4. Verificar se o cliente tem uma idade inferior à mínima.
+5. Criar duas variáveis que contenham 25 e "25".
+6. Comparar estes valores utilizando ==, ===, != e !==.
+7. Apresentar o resultado de cada comparação.
+Requisitos: Trabalha autonomamente, prevê os resultados antes de executares o programa e utiliza apenas os conceitos que já estudaste.
+
+Quando terminares, partilha o teu ficheiro do GitHub para análise.
